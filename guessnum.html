@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(145deg, #e0e0e0, #ffffff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        input[type="number"] {
+            font-size: 1.2rem;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #f0f0f0;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.8);
+            outline: none;
+            margin-top: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        input[type="number"]:focus {
+            background: #e0e0e0;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: linear-gradient(145deg, #ffffff, #d4d4d4);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #d4d4d4, #ffffff);
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.9);
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 1.4rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1), -10px -10px 30px rgba(255, 255, 255, 0.8);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number Game</h1>
+        <p>Enter your guess below:</p>
+        <input type="number" id="userGuess" placeholder="Enter your guess" />
+        <button onclick="submitGuess()">Submit</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Set the correct number here
+        var correctNumber = 66;
+
+        function submitGuess() {
+            var guess = document.getElementById("userGuess").value;
+
+            // Game logic happens here in JavaScript
+            var message;
+            if (guess < correctNumber) {
+                message = "Your guess " + guess + " is too low!";
+            } else if (guess > correctNumber) {
+                message = "Your guess " + guess + " is too high!";
+            } else {
+                message = "Congratulations! You guessed the number " + correctNumber + " correctly!";
+            }
+
+            // Display the result to the user
+            document.getElementById("result").innerText = message;
+        }
+    </script>
+</body>
+</html>
